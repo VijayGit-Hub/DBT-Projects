@@ -10,3 +10,4 @@ wheels/
 .venv
 dbt_internal_packages/
 target/
+logs/
