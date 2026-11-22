@@ -1,0 +1,4 @@
+customer_id,full_name,email,country,segment,updated_at
+CUST-101,Aarav Sharma,aarav@example.com,India,Enterprise,2026-11-21 08:00:00
+CUST-102,Maya Nair,maya@example.com,India,SMB,2026-11-21 08:05:00
+CUST-103,Rohan Kulkarni,rohan.k@example.com,India,Mid-Market,2026-11-21 09:20:00

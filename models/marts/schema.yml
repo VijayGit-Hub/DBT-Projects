@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension with inferred rows (is_inferred = true) for early orders before customer records arrive."
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: is_inferred
+        tests:
+          - not_null
+
+  - name: dim_products
+    description: "Product dimension table."
+    columns:
+      - name: product_key
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_orders
+    description: "Order fact table joined to conformed dimensions."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_key
+      - name: product_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_key
